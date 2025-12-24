@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Micro-App | Geometría Básica</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .app {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .explanation {
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+    .shapes {
+      display: flex;
+      justify-content: space-around;
+      margin: 30px 0;
+    }
+    .shape {
+      text-align: center;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 10px auto;
+      background: #3498db;
+    }
+    .circle {
+      border-radius: 50%;
+      background: #e74c3c;
+    }
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid #2ecc71;
+      background: none;
+    }
+    .quiz {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      background: #f4f6f7;
+    }
+    .quiz button {
+      margin-top: 10px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      background: #3498db;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .quiz button:hover {
+      background: #2980b9;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>Geometría Básica</h1>
+
+    <div class="explanation">
+      <p>
+        La <strong>geometría básica</strong> estudia las formas, tamaños y posiciones de los objetos.
+        En este nivel nos enfocamos en figuras simples como el <strong>cuadrado</strong>, el
+        <strong>círculo</strong> y el <strong>triángulo</strong>.
+      </p>
+      <p>
+        Cada figura tiene propiedades importantes. Por ejemplo:
+      </p>
+      <ul>
+        <li>El cuadrado tiene 4 lados iguales.</li>
+        <li>El círculo no tiene lados ni vértices.</li>
+        <li>El triángulo tiene 3 lados.</li>
+      </ul>
+    </div>
+
+    <div class="shapes">
+      <div class="shape">
+        <div class="box"></div>
+        <p>Cuadrado</p>
+      </div>
+      <div class="shape">
+        <div class="box circle"></div>
+        <p>Círculo</p>
+      </div>
+      <div class="shape">
+        <div class="triangle"></div>
+        <p>Triángulo</p>
+      </div>
+    </div>
+
+    <div class="quiz">
+      <h2>Actividad interactiva</h2>
+      <p>¿Cuántos lados tiene un triángulo?</p>
+      <input type="number" id="answer" placeholder="Escribe tu respuesta">
+      <br>
+      <button onclick="checkAnswer()">Comprobar</button>
+      <div id="feedback" class="feedback"></div>
+    </div>
+  </div>
+
+  <script>
+    // Comprueba la respuesta del estudiante y muestra retroalimentación inmediata
+    function checkAnswer() {
+      const answer = document.getElementById("answer").value;
+      const feedback = document.getElementById("feedback");
+
+      if (answer === "") {
+        feedback.textContent = "Por favor, escribe una respuesta.";
+        feedback.style.color = "#e67e22";
+        return;
+      }
+
+      if (parseInt(answer) === 3) {
+        feedback.textContent = "¡Correcto! El triángulo tiene 3 lados.";
+        feedback.style.color = "#27ae60";
+      } else {
+        feedback.textContent = "Respuesta incorrecta. Intenta de nuevo.";
+        feedback.style.color = "#c0392b";
+      }
+    }
+  </script>
+</body>
+</html>
